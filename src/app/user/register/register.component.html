@@ -1,0 +1,42 @@
+<form #form="ngForm" (ngSubmit)="register(form)">
+  <h3>Register Here</h3>
+
+  <label for="username">Username</label>
+  <input type="text" placeholder="Username" id="username" name="username" #inputUsername="ngModel" ngModel required minlength="6"/>
+  <ng-container *ngIf="inputUsername.touched">
+    <p class="error" *ngIf="inputUsername.errors?.['minlength']" >*Username should be at least 6 characters long!</p>
+    <p class="error"*ngIf="inputUsername.errors?.['required']">*Username is required!</p>
+  </ng-container>
+
+  <label for="email">Email</label>
+  <input type="text" placeholder="Email" id="email" name="email"  #inputEmail="ngModel" ngModel required />
+  <ng-container *ngIf="inputEmail.touched">
+    <p class="error" *ngIf="inputEmail.errors?.['required']">*Email is required!</p>
+    <!-- feafafawfaw -->
+    <p class="error">*Email is Invalid!</p>
+  </ng-container>
+
+  <label for="password">Password</label>
+  <input type="password" placeholder="Password" id="password" name="password"  #inputPassword="ngModel" ngModel required minlength="6"/>
+  <ng-container *ngIf="inputPassword.touched">
+      <p class="error" *ngIf="inputPassword.errors?.['minlength']">*Password should be at least 6 characters long!</p>
+      <p class="error"*ngIf="inputPassword.errors?.['required']">*Password is required!</p>
+  </ng-container>
+  <label for="repeatPassword">Confirm password</label>
+  <input
+    type="password"
+    placeholder="Confirm password"
+    id="repeatPassword"
+    name="repeatPassword"
+    #inputRepassword="ngModel" ngModel required minlength="6"
+  />
+  <ng-container *ngIf="inputRepassword.touched">
+    <p class="error">*Repeat Password does not match password!</p>
+    <p class="error">*Password is required</p>
+  </ng-container>
+
+  <button>Register</button>
+</form>
+
+
+

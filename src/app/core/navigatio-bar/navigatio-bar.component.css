@@ -1,0 +1,43 @@
+.navigation > nav {
+  /* background-color: #262322; */
+ z-index: 999;
+ position: relative;
+  width: 100%;
+  display: flex;
+  font-size: 1.5rem;
+  align-items: center;
+  height: 130px;
+}
+
+.navigation > nav img {
+  width: 100px;
+  padding: 5px;
+  filter: grayscale() brightness(2);
+}
+
+.navigation > nav ul {
+  margin-left: 100px;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  gap: 30px;
+  
+}
+
+.navigation > nav li {
+  height: 1.6em;
+  display: block;
+  list-style-type: none;
+  font-size: 24px;
+  font-weight: bold;
+  border-bottom: 4px solid transparent;
+}
+
+.navigation > nav li:hover {
+
+  border-bottom: 4px solid rgb(3, 68, 101);
+}
+.navigation > nav li a {
+  text-decoration: none;
+  color: white;
+}

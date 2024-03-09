@@ -1,0 +1,22 @@
+form{
+    display: flex;
+}
+
+input{
+    height: 30px;
+    border-radius: 5px 0 0 5px;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: 300;
+    border: 2px solid rgb(82, 198, 244);
+}
+button{
+    background: rgb(82, 198, 244);
+    box-shadow: none;
+    border: 0;
+    height: 30px;
+    width: 30px;
+    border-radius: 0 5px 5px 0;
+    margin-left: -2px;
+    color: white;
+}

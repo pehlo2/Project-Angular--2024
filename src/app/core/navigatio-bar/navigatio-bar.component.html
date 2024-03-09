@@ -1,0 +1,24 @@
+<div class="navigation">
+  <nav>
+    <img src="assets/SHOE.png" class="logo"/>
+    <ul *ngIf="isLogged">
+      <!-- Guest users and Logged users -->
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/catalog">Catalog</a></li>
+      <!--For guest users-->
+      <!--For loggin users-->
+      <li><a routerLink="/profile">Profile</a></li>
+      <li><a routerLink="/add-shoe">Sell Shoes</a></li>
+      <li><a (click)="logout()">Logout</a></li>
+      
+     
+    </ul>
+    <ul *ngIf="!isLogged">
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/catalog">Catalog</a></li>
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/register">Register</a></li>
+    </ul>
+    <app-search/>
+  </nav>
+</div>
