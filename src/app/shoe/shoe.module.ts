@@ -3,16 +3,19 @@ import { CommonModule } from '@angular/common';
 import { AddShoeComponent } from './add-shoe/add-shoe.component';
 import { ShoeRoutingModule } from './shoe-routing.module';
 import { ShoeListComponent } from './shoe-list/shoe-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ShoeCardComponent } from './shoe-card/shoe-card.component';
 
 
 
 @NgModule({
   declarations: [
     AddShoeComponent,
-    ShoeListComponent
+    ShoeListComponent,
+    ShoeCardComponent
   ],
   imports: [
-    CommonModule, ShoeRoutingModule
+    CommonModule, ShoeRoutingModule,ReactiveFormsModule
   ],
   exports:[ AddShoeComponent,
     ShoeListComponent]

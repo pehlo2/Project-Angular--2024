@@ -41,7 +41,7 @@ label{
     font-size: 16px;
     font-weight: 500;
 }
-input,textarea{
+input,textarea,select{
     display: block;
     height: 50px;
     max-height: 100px;
@@ -55,6 +55,11 @@ input,textarea{
     font-size: 14px;
     font-weight: 300;
 }
+
+select option{
+  color: #000;
+}
+
 ::placeholder{
     color: #e5e5e5;
 }
@@ -70,4 +75,9 @@ button{
     cursor: pointer;
 }
 
- 
+p.error {
+    text-align: left;
+    border-radius: 0.3em;
+    color: red;
+    padding-top: 0;
+}

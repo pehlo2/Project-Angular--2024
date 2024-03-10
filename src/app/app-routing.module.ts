@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PagenotfoundComponentComponent } from './pagenotfound-component/pagenotfound-component.component';
 import { HomeComponent } from './home/home.component';
-import { CatalogComponent } from './catalog/catalog.component';
+import { ShoeListComponent } from './shoe/shoe-list/shoe-list.component';
+
 
 
 const routes: Routes = [{
@@ -15,7 +16,7 @@ const routes: Routes = [{
   component: HomeComponent
 },{
   path: 'catalog',
-  component: CatalogComponent
+  component: ShoeListComponent
 },
 { path: '**',  pathMatch: 'full', component: PagenotfoundComponentComponent },
 

@@ -6,15 +6,18 @@
     type="text"
     placeholder="Email"
     id="email"
+    name="email"
     #inputEmail="ngModel"
     ngModel
     required
+    [appEmailValidation]="[]"
+  
   />
   <ng-container *ngIf="inputEmail.touched">
     <p class="error" *ngIf="inputEmail.errors?.['required']">
       *Email is required!
     </p>
-    <p class="error" *ngIf="inputEmail.errors?.['fawfawfaw']">
+    <p class="error" *ngIf="inputEmail.errors?.['appEmailValidator']">
       *Email is Invalid!
     </p>
   </ng-container>
@@ -24,16 +27,18 @@
     type="password"
     placeholder="Password"
     id="password"
+    name="password"
     #inputPassword="ngModel"
     ngModel
     required
+    minlength="6"
   />
   <ng-container *ngIf="inputPassword.touched">
-    <p class="error" *ngIf="inputEmail.errors?.['required']">
+    <p class="error" *ngIf="inputPassword.errors?.['required']">
       *Password is required!
     </p>
-    <p class="error" *ngIf="inputEmail.errors?.['minlength']">
-      *Password should be at least 8 characters long!
+    <p class="error" *ngIf="inputPassword.errors?.['minlength']">
+      *Password should be at least 6 characters long!
     </p>
   </ng-container>
 

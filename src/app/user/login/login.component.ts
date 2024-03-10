@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -9,14 +9,29 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+ 
   constructor(private userService: UserService, private router: Router) {
-
-
   }
+
+
+
+
+
+
+
+
+
+
+
+
+  
   login(form: NgForm): void {
     ///TODO: FOR NOW WE ARE NOT HANDLING ANY DATA
+    if(form.invalid){
+      return
+    }
     console.log(form.value);
-    console.log(form.value);
+   
 
     this.userService.login()
     this.router.navigate(['/'])

@@ -10,8 +10,8 @@ import { PagenotfoundComponentComponent } from './pagenotfound-component/pagenot
 import { TextCardComponent } from './shared/text-card/text-card.component';
 import { HomeComponent } from './home/home.component';
 import { ShoeModule } from './shoe/shoe.module';
-import { CatalogComponent } from './catalog/catalog.component';
 
+import { SharedModule } from './shared/shared.module';
 
 
 
@@ -21,8 +21,7 @@ import { CatalogComponent } from './catalog/catalog.component';
     PagenotfoundComponentComponent,
     TextCardComponent,
     HomeComponent,
-    CatalogComponent,
-   
+  
   
   ],
   imports: [
@@ -31,6 +30,7 @@ import { CatalogComponent } from './catalog/catalog.component';
     CoreModule,
     UserModule,
     ShoeModule,
+    SharedModule,
     AppRoutingModule,
   ],
   providers: [],
