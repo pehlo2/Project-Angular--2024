@@ -12,8 +12,8 @@ export class ShoesService {
  
 
   getShoeS(){
-    const { appUrl } = environment;
-    return this.http.get<Shoe[]>(`${appUrl}/data/shoes`);
+    const { apiUrl } = environment;
+    return this.http.get<Shoe[]>(`${apiUrl}/data/shoes`);
   }
 
   // getShoe(id:string) {

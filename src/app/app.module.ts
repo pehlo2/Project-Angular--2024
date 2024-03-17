@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { ShoeModule } from './shoe/shoe.module';
 
 import { SharedModule } from './shared/shared.module';
+import { AppInterceptorProvider } from './interceptor';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 
 
@@ -21,6 +23,7 @@ import { SharedModule } from './shared/shared.module';
     PagenotfoundComponentComponent,
     TextCardComponent,
     HomeComponent,
+    AuthenticateComponent,
   
   
   ],
@@ -33,7 +36,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [AppInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

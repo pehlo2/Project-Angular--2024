@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
 
 @Component({
@@ -8,18 +8,26 @@ import { UserService } from 'src/app/user/user.service';
   styleUrls: ['./navigatio-bar.component.css']
 })
 export class NavigatioBarComponent {
-constructor(private userService : UserService , private router : Router){}
+  constructor(private userService: UserService, private router: Router) { }
 
-  get isLogged() :boolean{
-     return  this.userService.isLogged
+  get isLogged(): boolean {
+    return this.userService.isLogged
   }
 
 
-  logout():void{
-    this.userService.logout()
-   this.router.navigate(['/'])
+  logout(): void {
+    this.userService.logout().subscribe({
+
+      next: () => {
+        this.router.navigate(['/'])
+      },
+      error: () => {
+        this.router.navigate(['/'])
+      }
+    })
+
   }
-  
+
 
 
 }

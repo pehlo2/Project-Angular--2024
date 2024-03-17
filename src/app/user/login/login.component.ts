@@ -9,31 +9,22 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
- 
+
   constructor(private userService: UserService, private router: Router) {
   }
 
 
 
-
-
-
-
-
-
-
-
-
-  
   login(form: NgForm): void {
-    ///TODO: FOR NOW WE ARE NOT HANDLING ANY DATA
-    if(form.invalid){
+
+    if (form.invalid) {
       return
     }
-    console.log(form.value);
-   
 
-    this.userService.login()
-    this.router.navigate(['/'])
+    const { email, password } = form.value
+
+    this.userService.login(email, password).subscribe(() => {
+      this.router.navigate(['/'])
+    })
   }
 }
