@@ -1,0 +1,21 @@
+<div id="container">
+  <article id="card">
+    <header>
+      <span id="nike" class="brand"></span>
+    </header>
+    <img id="shoe" src="{{shoe?.image}}" alt="" />
+    <section>
+      <div id="shoeInfo">
+        <span id="model" class="model"></span>
+        <p>Size:{{shoe?.size}}</p>
+        <p>Price:{{shoe?.price}}</p>
+        <p>Brand:{{shoe?.brand}}</p>
+        <p>Gender:{{shoe?.gender}}</p>
+        <p>Desctiption:{{shoe?.description}}</p>
+      </div>
+    </section>
+    <button routerLink="/shoes/{{shoe?._id}}/edit">Edit</button>
+    <button (click)="removeShoe()">Delete</button>
+    <button>Add to card</button>
+  </article>
+</div>

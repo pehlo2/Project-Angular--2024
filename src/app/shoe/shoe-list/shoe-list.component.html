@@ -1,1 +1,5 @@
-<app-shoe-card></app-shoe-card>
+<div class="shoeList">
+  <div class="shoe-wrapper" *ngFor="let shoe of shoeList">
+    <app-shoe-card [shoe]="shoe"></app-shoe-card>
+  </div>
+</div>

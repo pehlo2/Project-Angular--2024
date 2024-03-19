@@ -12,7 +12,7 @@ export class ShoeListComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.shoeService.getShoeS().subscribe({
+    this.shoeService.getAllShoes().subscribe({
 
       next: (shoes) => {
         console.log(shoes);

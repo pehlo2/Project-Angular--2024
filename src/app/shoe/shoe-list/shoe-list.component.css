@@ -1,0 +1,8 @@
+.shoeList {
+ display: flex;
+ flex-direction:row;
+ gap: 50px;
+ flex-wrap: wrap;
+overflow-x: scroll;
+
+}

@@ -1,11 +1,12 @@
 import { UserId } from "./userId"
 
 export interface Shoe {
-    "brand": string,
     "model": string,
+    "brand": string,
     "size": number,
     "price": number,
-    "imageUrl": string,
+    "gender":string,
+    "image": string,
     "description": string,
     "subscribers": string[],
     // "posts": any //string[] |Post,

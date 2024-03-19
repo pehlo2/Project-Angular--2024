@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Shoe } from 'src/interfaces/shoe';
 
 @Component({
   selector: 'app-shoe-card',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./shoe-card.component.css']
 })
 export class ShoeCardComponent {
-
+  @Input() shoe: Shoe | undefined
 }

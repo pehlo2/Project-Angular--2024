@@ -5,6 +5,8 @@ import { ShoeRoutingModule } from './shoe-routing.module';
 import { ShoeListComponent } from './shoe-list/shoe-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ShoeCardComponent } from './shoe-card/shoe-card.component';
+import { ShoeDetailsPageComponent } from './shoe-details-page/shoe-details-page.component';
+import { UpdateShoeComponent } from './update-shoe/update-shoe.component';
 
 
 
@@ -12,7 +14,9 @@ import { ShoeCardComponent } from './shoe-card/shoe-card.component';
   declarations: [
     AddShoeComponent,
     ShoeListComponent,
-    ShoeCardComponent
+    ShoeCardComponent,
+    ShoeDetailsPageComponent,
+    UpdateShoeComponent
   ],
   imports: [
     CommonModule, ShoeRoutingModule,ReactiveFormsModule
