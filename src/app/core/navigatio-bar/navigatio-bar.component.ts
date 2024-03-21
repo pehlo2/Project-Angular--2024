@@ -8,7 +8,7 @@ import { UserService } from 'src/app/user/user.service';
   styleUrls: ['./navigatio-bar.component.css']
 })
 export class NavigatioBarComponent {
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router ) { }
 
   get isLogged(): boolean {
     return this.userService.isLogged

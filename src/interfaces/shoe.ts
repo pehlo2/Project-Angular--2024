@@ -5,14 +5,23 @@ export interface Shoe {
     "brand": string,
     "size": number,
     "price": number,
-    "gender":string,
+    "gender": string,
     "image": string,
     "description": string,
     "subscribers": string[],
-    // "posts": any //string[] |Post,
+    "ownerId": string
     "_id": string,
     "userId": UserId,
     "created_at": string,
     "updatedAt": string,
     "__v": number
+}
+
+export interface ShoePaginated {
+    "shoes": Shoe[],
+    "currentPage": number,
+    "totalPages": number,
+    "count": number,
+    'limit': number
+
 }

@@ -7,6 +7,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ShoeCardComponent } from './shoe-card/shoe-card.component';
 import { ShoeDetailsPageComponent } from './shoe-details-page/shoe-details-page.component';
 import { UpdateShoeComponent } from './update-shoe/update-shoe.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { SearchBarShoeComponent } from './search-bar-shoe/search-bar-shoe.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -16,13 +19,14 @@ import { UpdateShoeComponent } from './update-shoe/update-shoe.component';
     ShoeListComponent,
     ShoeCardComponent,
     ShoeDetailsPageComponent,
-    UpdateShoeComponent
+    UpdateShoeComponent,
+    SearchBarShoeComponent
   ],
   imports: [
-    CommonModule, ShoeRoutingModule,ReactiveFormsModule
+    CommonModule,MatPaginatorModule, ShoeRoutingModule,ReactiveFormsModule,SharedModule
   ],
   exports:[ AddShoeComponent,
-    ShoeListComponent]
+    ShoeListComponent,SearchBarShoeComponent]
   
 })
 export class ShoeModule { }

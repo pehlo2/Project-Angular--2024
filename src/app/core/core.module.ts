@@ -3,17 +3,20 @@ import { CommonModule } from '@angular/common';
 import { NavigatioBarComponent } from './navigatio-bar/navigatio-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
-import { SearchComponent } from '../shared/search/search.component';
+import { SearchBarShoeComponent } from '../shoe/search-bar-shoe/search-bar-shoe.component';
+import { ShoeModule } from '../shoe/shoe.module';
+import { UserModule } from '../user/user.module';
+
 
 
 
 @NgModule({
   declarations: [
     NavigatioBarComponent,
-    FooterComponent,SearchComponent
+    FooterComponent,
   ],
   imports: [
-    CommonModule,RouterModule
+    CommonModule,RouterModule,ShoeModule,UserModule
   ],
   exports: [NavigatioBarComponent,
     FooterComponent]

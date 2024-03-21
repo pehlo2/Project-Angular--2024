@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Shoe } from 'src/interfaces/shoe';
+import { Shoe, ShoePaginated } from 'src/interfaces/shoe';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,18 +10,19 @@ export class ShoesService {
 
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,) { }
 
   updateShoe(shoeId: string, data: {}) {
     return this.http.put<Shoe>(`/api/data/shoes/${shoeId}`, data);
 
   }
-  getAllShoes() {
-    return this.http.get<Shoe[]>(`/api/data/shoes`);
+  getAllShoes(pageIndex: number) {
+    return this.http.get<ShoePaginated>(`/api/data/shoes?page=${pageIndex}`);
   }
   getOneShoe(shoeId: string) {
-    return this.http.get<Shoe>(`/api/data/shoes/${shoeId}`);
+    return this.http.get<Shoe>(`/api/data/shoes/${shoeId}`)
   }
+
 
   removeShoe(shoeId: string) {
     return this.http.delete<Shoe>(`/api/data/shoes/${shoeId}`);
@@ -33,7 +35,9 @@ export class ShoesService {
     gender: string,
     price: string,
     image: string,
-    description: string) {
+    description: string,
+    ownerId: string
+  ) {
     return this.http.post<Shoe>(`/api/data/shoes/create`, {
       brand,
       model,
@@ -42,6 +46,7 @@ export class ShoesService {
       price,
       image,
       description,
+      ownerId
     });
 
   }

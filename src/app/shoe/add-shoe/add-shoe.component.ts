@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { appImageUrlValidator } from 'src/app/shared/validators/image-url-validator';
 import { ShoesService } from '../shoes.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-add-shoe',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 export class AddShoeComponent {
 
 
-  constructor(private fb: FormBuilder, private shoeService: ShoesService, private router: Router) {
+  constructor(private fb: FormBuilder, private shoeService: ShoesService, private router: Router, public userService: UserService) {
   }
   form = this.fb.group({
     brand: ['', [Validators.required, Validators.minLength(3)]],
@@ -24,6 +25,9 @@ export class AddShoeComponent {
     description: ['', [Validators.required, Validators.minLength(10)]],
 
   })
+  get ownerId() {
+    return this.userService.userId
+  }
 
   AddShoe() {
     if (this.form.invalid) {
@@ -47,7 +51,7 @@ export class AddShoeComponent {
       gender!,
       price!,
       image!,
-      description!,
+      description!, this.ownerId!
     ).subscribe(() => {
       this.router.navigate(['/catalog'])
     })

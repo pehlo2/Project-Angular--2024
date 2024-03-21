@@ -13,7 +13,7 @@ export class UserService implements OnDestroy {
 
   private user$$ = new BehaviorSubject<User | undefined>(undefined)
   public user$ = this.user$$.asObservable()
-
+  userId: string | undefined
 
   user: User | undefined
 
@@ -21,10 +21,14 @@ export class UserService implements OnDestroy {
     return !!this.user
 
   }
+  get isOwner(): boolean {
+    return this.userId === "faw"
+  }
+
 
   subsription: Subscription
 
-  constructor(private http: HttpClient,) {
+  constructor(private http: HttpClient) {
     this.subsription = this.user$.subscribe((user) => {
       this.user = user
     })
@@ -33,7 +37,10 @@ export class UserService implements OnDestroy {
 
 
   login(email: string, password: string) {
-    return this.http.post<User>('/api/users/login', { email, password }).pipe(tap(user => this.user$$.next(user)))
+    return this.http.post<User>('/api/users/login', { email, password }).pipe(tap(user => {
+      this.userId = user._id
+      this.user$$.next(user)
+    }))
   }
 
   register(email: string, username: string, password: string, rePassword: string) {
@@ -45,7 +52,9 @@ export class UserService implements OnDestroy {
   }
 
   getUserInfo() {
-    return this.http.get<User>('/api/users/profile').pipe(tap((user) => this.user$$.next(user)))
+    return this.http.get<User>('/api/users/profile').pipe(tap((user) => {
+      this.user$$.next(user)
+    }))
   }
 
   ngOnDestroy(): void {

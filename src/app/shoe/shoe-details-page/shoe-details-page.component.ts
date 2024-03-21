@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ShoesService } from '../shoes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Shoe } from 'src/interfaces/shoe';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-shoe-details-page',
@@ -10,11 +11,16 @@ import { Shoe } from 'src/interfaces/shoe';
 })
 export class ShoeDetailsPageComponent {
   shoe: Shoe | undefined
+  
 
-
-  constructor(private shoeService: ShoesService, private activedRoute: ActivatedRoute, private router: Router) {
+  constructor(private shoeService: ShoesService, private activedRoute: ActivatedRoute, private router: Router,private userService:UserService) {
 
   }
+ 
+// get isOwner(){
+//   return this.userService.user$.
+// }
+
 
   ngOnInit(): void {
     this.getOneShoe()

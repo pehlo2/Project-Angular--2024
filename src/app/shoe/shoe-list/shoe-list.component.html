@@ -1,5 +1,10 @@
 <div class="shoeList">
-  <div class="shoe-wrapper" *ngFor="let shoe of shoeList">
+  <div class="shoe-wrapper" *ngFor="let shoe of this.response?.shoes">
     <app-shoe-card [shoe]="shoe"></app-shoe-card>
   </div>
 </div>
+<mat-paginator
+  [pageSize]="this.response?.limit"
+  [length]="this.response?.count"
+  (page)="onPageChange($event)"
+></mat-paginator>

@@ -14,6 +14,7 @@ import { ShoeModule } from './shoe/shoe.module';
 import { SharedModule } from './shared/shared.module';
 import { AppInterceptorProvider } from './interceptor';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -34,6 +35,7 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
     UserModule,
     ShoeModule,
     SharedModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
   ],
   providers: [AppInterceptorProvider],
