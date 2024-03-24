@@ -21,12 +21,16 @@ exports.update = (shoeId, shoeData) => Shoe.findByIdAndUpdate(shoeId, shoeData)
 exports.delete = (shoeId) => Shoe.findByIdAndDelete(shoeId)
 
 exports.getAllForPagination = async (queryData) => {
-
+       console.log(queryData);
     const { page = 1, limit = 12 } = queryData
+    let query = {}
 
+    if (queryData.search) {
+        query.brand = new RegExp(queryData.search, 'i');
+    }
 
-    const shoes = await Shoe.find().limit(limit * 1).skip((page - 1) * limit).sort({created_at: -1})
-    const count = await Shoe.countDocuments()
+    const shoes = await Shoe.find(query).limit(limit * 1).skip((page - 1) * limit).sort({ created_at: -1 })
+    const count = await Shoe.countDocuments(query)
 
     const result = {
         shoes,

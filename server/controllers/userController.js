@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const userManager = require('../managers/userManager.js')
 const authCookieName = 'auth-cookie'
+
+
 router.post('/register', async (req, res) => {
     try {
         const result = await userManager.register(req.body)

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddShoeComponent } from './add-shoe/add-shoe.component';
 import { ShoeDetailsPageComponent } from './shoe-details-page/shoe-details-page.component';
 import { UpdateShoeComponent } from './update-shoe/update-shoe.component';
+import { AuthGuard } from '../guards/auth-guard.activate';
 
 
 
@@ -12,25 +13,28 @@ const routes: Routes = [
     {
         path: 'add-shoe',
         component: AddShoeComponent,
-        // canActivate:[AuthActivate]
+        canActivate: [AuthGuard]
     },
     {
         path: 'shoes', children: [
             {
                 path: ':shoeId',
-                component: ShoeDetailsPageComponent
+                component: ShoeDetailsPageComponent,
             }
         ]
-    }, {
+    },
+    {
         path: 'shoes', children: [
             {
                 path: ':shoeId', children: [
                     {
                         path: 'edit',
-                        component: UpdateShoeComponent
+                        component: UpdateShoeComponent,
+                        canActivate :[AuthGuard]
+
                     }
                 ]
-                
+
             }
         ]
     }

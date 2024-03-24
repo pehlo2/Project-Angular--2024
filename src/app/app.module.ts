@@ -15,6 +15,8 @@ import { SharedModule } from './shared/shared.module';
 import { AppInterceptorProvider } from './interceptor';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { AuthGuard } from './guards/auth-guard.activate';
 
 
 
@@ -25,12 +27,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TextCardComponent,
     HomeComponent,
     AuthenticateComponent,
-  
-  
+ 
+
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    CommonModule,
     CoreModule,
     UserModule,
     ShoeModule,
@@ -38,7 +42,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     AppRoutingModule,
   ],
-  providers: [AppInterceptorProvider],
-  bootstrap: [AppComponent]
+  providers: [AppInterceptorProvider,AuthGuard],
+  bootstrap: [AppComponent],
+  exports: [AuthenticateComponent]
 })
 export class AppModule { }

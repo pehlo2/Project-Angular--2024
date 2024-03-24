@@ -1,28 +1,35 @@
 .shoeList {
- display: grid;
- grid-template-columns: repeat(6, auto);
- flex-direction:row;
- gap: 10px;
- justify-content: center;
- flex-wrap: wrap;
-overflow-x: scroll;
-
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow-x: scroll;
 }
-.mat-mdc-paginator{
+.mat-mdc-paginator {
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 
-   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-   border: 2px solid rgba(255, 255, 255, 0.1);
-   backdrop-filter: blur(10px);
- 
-   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-   background-color: rgba(255, 255, 255, 0.13);
-   display: flex;
-   justify-content: center;
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  background-color: rgba(255, 255, 255, 0.13);
+  display: flex;
+  justify-content: center;
 
-   box-shadow: 0 5px 40px -20px rgba(0, 0, 0, 0.4);
-   border-radius: 20px;
+  box-shadow: 0 5px 40px -20px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
 }
-
-::ng-deep .cdk-overlay-container{
-display: none;
+.noResults{
+  font-weight: bold;
+  font-size: 20px;
 }
+::ng-deep .mat-mdc-paginator-container .mat-mdc-paginator-page-size {
+  display:none;
+}
+/* ::ng-deep .mat-mdc-paginator-page-size-label {
+  display: none;
+}
+::ng-deep .mat-mdc-paginator-page-size-value {
+  display: none;
+} */

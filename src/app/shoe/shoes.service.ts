@@ -1,26 +1,42 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { tap } from 'rxjs';
 import { Shoe, ShoePaginated } from 'src/interfaces/shoe';
+import { UserService } from '../user/user.service';
+import { SharedService } from '../shared/shared.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoesService {
+  constructor(private http: HttpClient) { }
+  shoe: Shoe | undefined
+  shoeOwnerId: string | undefined
+  searchQuery: string = ""
 
 
 
-  constructor(private http: HttpClient,) { }
+  setSearchQuery(query: string) {
+    this.searchQuery = query;
+  }
+
+  getSearchQuery() {
+    return this.searchQuery;
+  }
+  ///////////////
 
   updateShoe(shoeId: string, data: {}) {
     return this.http.put<Shoe>(`/api/data/shoes/${shoeId}`, data);
 
   }
-  getAllShoes(pageIndex: number) {
-    return this.http.get<ShoePaginated>(`/api/data/shoes?page=${pageIndex}`);
+  getAllShoes(pageIndex: number, searchData: string) {
+    return this.http.get<ShoePaginated>(`/api/data/shoes?page=${pageIndex}&search=${searchData}`);
   }
   getOneShoe(shoeId: string) {
-    return this.http.get<Shoe>(`/api/data/shoes/${shoeId}`)
+    return this.http.get<Shoe>(`/api/data/shoes/${shoeId}`).pipe(tap(shoe => {
+      this.shoeOwnerId = shoe.ownerId
+    }))
   }
 
 

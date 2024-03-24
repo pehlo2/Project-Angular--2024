@@ -25,7 +25,7 @@ export class AppInterceptor implements HttpInterceptor {
         withCredentials: true
       })
     }
-    return next.handle(request);
+    return next.handle(request)
   }
 }
 

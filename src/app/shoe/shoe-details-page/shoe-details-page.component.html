@@ -1,21 +1,29 @@
 <div id="container">
   <article id="card">
     <header>
-      <span id="nike" class="brand"></span>
+      <span id="nike" class="brand">{{ shoe?.brand | titlecase }} </span>
     </header>
-    <img id="shoe" src="{{shoe?.image}}" alt="" />
+    <img id="shoe" src="{{ shoe?.image }}" alt="" />
     <section>
       <div id="shoeInfo">
         <span id="model" class="model"></span>
-        <p>Size:{{shoe?.size}}</p>
-        <p>Price:{{shoe?.price}}</p>
-        <p>Brand:{{shoe?.brand}}</p>
-        <p>Gender:{{shoe?.gender}}</p>
-        <p>Desctiption:{{shoe?.description}}</p>
+        <p>Brand: {{ shoe?.brand | titlecase }}</p>
+        <p>Size: {{ shoe?.size }}</p>
+        <p>Price: {{ shoe?.price | currency }}</p>
+        <p>Gender: {{ shoe?.gender }}</p>
+        <p>Desctiption: {{ shoe?.description }}</p>
       </div>
     </section>
-    <button routerLink="/shoes/{{shoe?._id}}/edit">Edit</button>
-    <button (click)="removeShoe()">Delete</button>
-    <button>Add to card</button>
+    <div *ngIf="isLogged">
+      <div *ngIf="isOwner">
+        <button>Add to card</button>
+      </div>
+      <div *ngIf="!isOwner">
+        <button routerLink="/shoes/{{ shoe?._id }}/edit">Edit</button>
+        <button (click)="removeShoe()">Delete</button>
+      </div>
+    </div>
+   
+    
   </article>
 </div>

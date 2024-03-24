@@ -64,3 +64,8 @@ p.error {
     color: red;
     padding-top: 0;
 }
+.signup_link{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}

@@ -8,7 +8,7 @@ exports.auth = async (req, res, next) => {
     if (token) {
 
         try {
-          
+
             const decodedToken = await jwt.verify(token, 'SECRETSSERCRET');
             req.user = decodedToken;
             next();
@@ -24,4 +24,19 @@ exports.auth = async (req, res, next) => {
     }
 
 
+}
+exports.isAuth = (req, res, next) => {
+    if (!req.user) {
+        return res.status(401).end()
+    };
+    next()
+};
+
+
+exports.checkIsOwner = async (req, res, next) => {
+    let shoe = await stoneManager.getOne(req.params.id);
+    if (shoe.owner._id !== req.user._id) {
+        return res.status(401).end()
+    }
+    next();
 }

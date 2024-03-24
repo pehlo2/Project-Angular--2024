@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Subscription, tap } from 'rxjs';
 import { User } from 'src/interfaces/user';
+import { ShoesService } from '../shoe/shoes.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,21 +15,18 @@ export class UserService implements OnDestroy {
   private user$$ = new BehaviorSubject<User | undefined>(undefined)
   public user$ = this.user$$.asObservable()
   userId: string | undefined
-
   user: User | undefined
 
   get isLogged(): boolean {
     return !!this.user
 
   }
-  get isOwner(): boolean {
-    return this.userId === "faw"
-  }
+
 
 
   subsription: Subscription
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient ) {
     this.subsription = this.user$.subscribe((user) => {
       this.user = user
     })

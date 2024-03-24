@@ -13,6 +13,7 @@ import { SharedModule } from '../shared/shared.module';
 
 
 
+
 @NgModule({
   declarations: [
     AddShoeComponent,
@@ -20,10 +21,10 @@ import { SharedModule } from '../shared/shared.module';
     ShoeCardComponent,
     ShoeDetailsPageComponent,
     UpdateShoeComponent,
-    SearchBarShoeComponent
+    SearchBarShoeComponent,
   ],
   imports: [
-    CommonModule,MatPaginatorModule, ShoeRoutingModule,ReactiveFormsModule,SharedModule
+    CommonModule,MatPaginatorModule, ShoeRoutingModule,ReactiveFormsModule,SharedModule,
   ],
   exports:[ AddShoeComponent,
     ShoeListComponent,SearchBarShoeComponent]

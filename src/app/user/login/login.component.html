@@ -11,7 +11,6 @@
     ngModel
     required
     [appEmailValidation]="[]"
-  
   />
   <ng-container *ngIf="inputEmail.touched">
     <p class="error" *ngIf="inputEmail.errors?.['required']">
@@ -43,4 +42,9 @@
   </ng-container>
 
   <button>Log In</button>
+
+  <div class="signup_link">
+    Not a Member?&nbsp; 
+    <a href="/register">Register</a>
+  </div>
 </form>

@@ -1,4 +1,9 @@
 <div class="shoeList">
+  <div class="noResults" *ngIf="this.response?.shoes?.length === 0">
+    <h2>Hmmm...</h2>
+    <br>
+    <p>We couldn'n find any matches for: "{{ searchData }}".</p>
+  </div>
   <div class="shoe-wrapper" *ngFor="let shoe of this.response?.shoes">
     <app-shoe-card [shoe]="shoe"></app-shoe-card>
   </div>
