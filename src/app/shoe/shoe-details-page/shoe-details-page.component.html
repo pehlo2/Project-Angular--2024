@@ -15,15 +15,13 @@
       </div>
     </section>
     <div *ngIf="isLogged">
-      <div *ngIf="isOwner">
+      <div *ngIf="!isOwner">
         <button>Add to card</button>
       </div>
-      <div *ngIf="!isOwner">
+      <div *ngIf="isOwner">
         <button routerLink="/shoes/{{ shoe?._id }}/edit">Edit</button>
         <button (click)="removeShoe()">Delete</button>
       </div>
     </div>
-   
-    
   </article>
 </div>

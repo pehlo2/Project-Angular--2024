@@ -1,21 +1,30 @@
 <div id="container">
   <article id="card">
     <header>
-      <span id="nike" class="brand">{{shoe?.brand | titlecase}}</span>
+      <span id="nike" class="brand">{{ shoe.brand | titlecase }}</span>
     </header>
-    <img
-      id="shoe"
-      src="{{shoe?.image}}"
-      alt=""
-    />
+    <img id="shoe" src="{{ shoe.image }}" alt="" />
     <section>
       <div id="shoeInfo">
-        <span id="model" class="model">{{shoe?.model | titlecase}}</span>
-        <p>Size: {{shoe?.size}}</p>
-        <p>Gender: {{shoe?.gender}} </p>
-        <p>Price: {{shoe?.price | currency}}</p>
+        <span id="model" class="model">{{ shoe.model | titlecase }}</span>
+        <p>Size: {{ shoe.size }}</p>
+        <p>Gender: {{ shoe.gender }}</p>
+        <p>Price: {{ shoe.price | currency }}</p>
       </div>
     </section>
-    <button routerLink="/shoes/{{shoe?._id}}">Details</button>
+    <button routerLink="/shoes/{{ shoe._id }}">Details</button>
+    <button
+      (click)="
+        addToCard({
+          brand: shoe.brand,
+          price: shoe.price,
+          shoeId: shoe._id,
+          image:shoe.image,
+          quantity: 1
+        })
+      "
+    >
+      Add to card
+    </button>
   </article>
 </div>

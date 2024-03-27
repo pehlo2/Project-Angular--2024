@@ -5,8 +5,10 @@ const jwt = require('../lib/jwt.js')
 
 
 exports.register = async (userData) => {
-
-    console.log(userData);
+    const userExistCheck = await User.findOne({ email: userData.email});
+    if (userExistCheck) {
+        throw new Error('This email address is already used.');
+    }
     const user = await User.create(userData);
     const result = await getAuthResult(user);
     return result;
@@ -19,13 +21,13 @@ exports.login = async ({ email, password }) => {
 
 
     if (!user) {
-        throw new Error('Invalid email or password');
+        throw new Error('Invalid email or password.');
     }
     const isValid = await bcrypt.compare(password, user.password);
-
+        console.log(password);
 
     if (!isValid) {
-        throw new Error('Invalid email or password');
+        throw new Error('Invalid email or password.');
     };
 
     const result = await getAuthResult(user);

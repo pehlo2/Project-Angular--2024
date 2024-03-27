@@ -1,0 +1,38 @@
+.buttonYes {
+  background-color: red; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.buttonNo {
+  background-color: #04aa6d; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+::ng-deep .dialog-container {
+
+
+  background: rgb(57, 55, 55);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+  
+ 
+}
+::ng-deep .mat-mdc-dialog-container .mdc-dialog__surface {
+--mdc-dialog-supporting-text-color: rgb(255, 255, 255);
+--mdc-dialog-subhead-color : rgb(255, 255, 255);
+  
+}
+/* ::ng-deep .mat-mdc-dialog-container .mdc-dialog__content{
+  color: white;
+} */

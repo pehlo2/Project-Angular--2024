@@ -21,7 +21,6 @@ exports.update = (shoeId, shoeData) => Shoe.findByIdAndUpdate(shoeId, shoeData)
 exports.delete = (shoeId) => Shoe.findByIdAndDelete(shoeId)
 
 exports.getAllForPagination = async (queryData) => {
-       console.log(queryData);
     const { page = 1, limit = 12 } = queryData
     let query = {}
 
@@ -39,4 +38,8 @@ exports.getAllForPagination = async (queryData) => {
         currentPage: page
     }
     return result
+}
+exports.cart = async (data) => {
+
+
 }

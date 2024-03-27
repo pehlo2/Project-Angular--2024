@@ -1,34 +1,34 @@
 const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema.Types;
 
-const ShoeSchema = new mongoose.Schema({
+const shoeSchema = new mongoose.Schema({
     brand: {
         type: String,
-        required: [true,'Brand is required'],
+        required: [true, 'Brand is required'],
         minLenght: [3, 'brand should be at least 3 characters']
     },
     model: {
         type: String,
-        required: [true,'Model is required'],
+        required: [true, 'Model is required'],
         minLenght: [3, 'Model should be at least 3 characters']
     },
     description: {
         type: String,
-        required: [true,'Description is required'],
+        required: [true, 'Description is required'],
         minLenght: [10, 'Model should be at least 10 characters']
     },
     size: {
         type: Number,
-        required: [true,'Size is required']
+        required: [true, 'Size is required']
     },
     price: {
         type: Number,
-        required: [true,'Price is required']
+        required: [true, 'Price is required']
     },
     image: {
         type: String,
-        required: [true,'Image is required'],
-        validate: [/^https?:\/\//i,'Wrong Format Image']
+        required: [true, 'Image is required'],
+        validate: [/^https?:\/\//i, 'Wrong Format Image']
     },
     gender: {
         type: String,
@@ -42,10 +42,20 @@ const ShoeSchema = new mongoose.Schema({
     ownerId: {
         type: mongoose.Types.ObjectId,
         ref: 'User'
+    },
+    buyers: [{
+        buyerId: {
+            type: mongoose.Types.ObjectId,
+            ref: 'User',
+            required: true
+        },
+        quantity: {
+            type: Number,
+            required: true
+        }
+    }]
 
-    }
 
-  
 }, { timestamps: { createdAt: 'created_at' } });
-const Shoe = mongoose.model('Shoe', ShoeSchema);
+const Shoe = mongoose.model('Shoe', shoeSchema);
 module.exports = Shoe;

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ErrorService } from './core/error/error.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project-Softuni-2024';
+  constructor(private errorService: ErrorService) { }
+
+
+  get ifError() {
+    return   this.errorService.ifError
+}
 }

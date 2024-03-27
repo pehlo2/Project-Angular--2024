@@ -9,9 +9,7 @@ export class SharedService {
 
   constructor(private shoeService: ShoesService, private userService: UserService) { }
 
-  get isOwner(): boolean {
-    return this.shoeService.shoeOwnerId === this.userService.userId
-  }
+
   get isLogged(): boolean {
     return this.userService.isLogged
   }

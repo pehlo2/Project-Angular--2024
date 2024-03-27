@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Shoe } from 'src/interfaces/shoe';
 import { UserService } from 'src/app/user/user.service';
 import { SharedService } from 'src/app/shared/shared.service';
+import { DialogService } from 'src/app/shared/dialog.service';
 
 @Component({
   selector: 'app-shoe-details-page',
@@ -14,12 +15,20 @@ export class ShoeDetailsPageComponent {
   shoe: Shoe | undefined
 
 
-  constructor(private shoeService: ShoesService, private activedRoute: ActivatedRoute, private router: Router, private sharedService: SharedService) {
+  constructor(
+    private shoeService: ShoesService,
+    private activedRoute: ActivatedRoute,
+    private router: Router,
+    private sharedService: SharedService,
+    private dialogService: DialogService,
+    private userService: UserService
+  ) {
 
   }
 
   get isOwner() {
-    return this.sharedService.isOwner
+    return this.userService.userId === this.shoeService.shoeOwnerId
+
   }
   get isLogged() {
     return this.sharedService.isLogged
@@ -37,13 +46,27 @@ export class ShoeDetailsPageComponent {
     })
   }
   removeShoe() {
-    if (confirm("are u sure>")) {
-      const id = this.activedRoute.snapshot.params['shoeId']
-      this.shoeService.removeShoe(id).subscribe(() => {
-        this.router.navigate(['/catalog'])
+    // if (res) {
+    //   const id = this.activedRoute.snapshot.params['shoeId']
+    //   this.shoeService.removeShoe(id)
+    // this.shoeService.removeShoe(id).subscribe(() => {
+    //   this.router.navigate(['/catalog'])
 
-      })
-    }
+    // })
+
+    // }
+    this.dialogService.openConfirmDialog().afterClosed().subscribe(response => {
+      
+      
+      if (response) {
+        const id = this.activedRoute.snapshot.params['shoeId']
+        this.shoeService.removeShoe(id).subscribe(() => {
+          this.router.navigate(['/catalog'])
+        })
+
+      }
+    });
+
 
 
   }

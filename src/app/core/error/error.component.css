@@ -1,0 +1,51 @@
+/* .notification{
+    position: fixed;
+    z-index: 10;
+    right: 1%;
+    top: 20%;
+    background-color: rgba(255,255,255,0.13);
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+   }
+   .error-message {
+    background-color: rgba(238, 74, 74, 0.699);
+   }
+   .success-message {
+    background-color: rgba(99, 230, 81, 0.699);
+   }
+
+    */
+
+.jam,
+.jam a {
+  background-color:#e14d45;
+  color: #fff;
+  font-weight: bold;
+}
+.jam a {
+  display: block;
+}
+/* toast */
+.toast {
+  z-index: 10;
+  right: 1%;
+  top: 20%;
+  color: white;
+  line-height: 1.5;
+  margin-bottom: 1em;
+  padding: 1.25em;
+  position: absolute;
+  width: 350px;
+}
+.close {
+    cursor: pointer;
+    float: right;
+    font-size: 1.25rem;
+    line-height: 1;
+    margin-left: 1em;
+    opacity: .8;
+  }

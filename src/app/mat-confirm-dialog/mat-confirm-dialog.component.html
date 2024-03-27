@@ -1,0 +1,10 @@
+<div class="dialog-container">
+  <h2 mat-dialog-title>Delete Confirmation</h2>
+  <mat-dialog-content> Would you like to delete Shoe? </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close  mat-dialog-close class="buttonNo">No</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="buttonYes">
+      Yes
+    </button>
+  </mat-dialog-actions>
+</div>

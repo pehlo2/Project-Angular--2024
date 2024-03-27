@@ -1,4 +1,7 @@
 <app-authenticate>
   <app-navigatio-bar />
+
+  <div *ngIf="ifError" ><app-error></app-error></div>
+
   <router-outlet />
 </app-authenticate>

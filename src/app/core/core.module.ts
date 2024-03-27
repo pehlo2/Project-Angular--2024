@@ -5,6 +5,7 @@ import { NavigatioBarComponent } from './navigatio-bar/navigatio-bar.component';
 import { RouterModule } from '@angular/router';
 import { ShoeModule } from '../shoe/shoe.module';
 import { UserModule } from '../user/user.module';
+import { ErrorComponent } from './error/error.component';
 
 
 
@@ -12,12 +13,13 @@ import { UserModule } from '../user/user.module';
 @NgModule({
   declarations: [
     NavigatioBarComponent,
+    ErrorComponent,
     
   ],
   imports: [
     CommonModule,RouterModule,ShoeModule,UserModule
   ],
-  exports: [NavigatioBarComponent,
+  exports: [NavigatioBarComponent,ErrorComponent
   ]
 })
 export class CoreModule { }

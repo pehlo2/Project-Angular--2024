@@ -23,21 +23,24 @@ export class ShoeListComponent implements OnInit {
 
   }
 
+  
 
   ngOnInit(): void {
+
     //this.searchData = this.activeRoute.snapshot.queryParams['search']
     this.activeRoute.queryParams.subscribe(params => {
-      this.searchData = params['search']?? ""
+      this.searchData = params['search'] ?? ""
       this.getAllShoe()
     })
 
-  
+
   }
 
 
 
 
   getAllShoe() {
+
     this.shoeService.getAllShoes(1, this.searchData).subscribe({
 
       next: (response) => {

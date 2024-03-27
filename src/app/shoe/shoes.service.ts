@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs';
 import { Shoe, ShoePaginated } from 'src/interfaces/shoe';
-import { UserService } from '../user/user.service';
-import { SharedService } from '../shared/shared.service';
+
 
 
 @Injectable({

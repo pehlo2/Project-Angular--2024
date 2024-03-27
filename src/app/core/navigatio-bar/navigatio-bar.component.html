@@ -1,6 +1,6 @@
 <div class="navigation">
   <nav>
-    <img src="assets/SHOE.png" class="logo"/>
+    <img src="assets/SHOE.png" class="logo" />
     <ul *ngIf="isLogged">
       <!-- Guest users and Logged users -->
       <li><a routerLink="/home">Home</a></li>
@@ -10,8 +10,7 @@
       <li><a routerLink="/profile">Profile</a></li>
       <li><a routerLink="/add-shoe">Sell Shoes</a></li>
       <li><a (click)="logout()">Logout</a></li>
-      
-     
+      <li><a routerLink="/shoppingCart">Cart</a></li>
     </ul>
     <ul *ngIf="!isLogged">
       <li><a routerLink="/home">Home</a></li>
@@ -19,8 +18,6 @@
       <li><a routerLink="/login">Login</a></li>
       <li><a routerLink="/register">Register</a></li>
     </ul>
-    <app-search-bar-shoe>
-    </app-search-bar-shoe>
+    <app-search-bar-shoe> </app-search-bar-shoe>
   </nav>
- 
 </div>

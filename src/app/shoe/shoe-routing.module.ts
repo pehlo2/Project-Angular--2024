@@ -30,7 +30,7 @@ const routes: Routes = [
                     {
                         path: 'edit',
                         component: UpdateShoeComponent,
-                        canActivate :[AuthGuard]
+                         canActivate :[AuthGuard]
 
                     }
                 ]
